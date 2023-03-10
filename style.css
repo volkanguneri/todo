@@ -1,0 +1,273 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap');
+
+/* Colors  */
+:root {
+    /* Primary colors */
+    --bright-blue: hsl(220, 98%, 61%);
+    --check-background: linear-gradient(to bottom right, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+    ;
+
+    /* Light Theme  */
+    --very-light-gray: hsl(0, 0%, 98%);
+    --very-light-grayish-blue: hsl(236, 33%, 92%);
+    --light-grayish-blue: hsl(233, 11%, 84%);
+    --dark-grayish-blue: hsl(236, 9%, 61%);
+    --very-dark-grayish-blue: hsl(235, 19%, 35%);
+
+    /* Dark Theme  */
+    --body-background: hsl(235, 21%, 11%);
+    --main-background: hsl(235, 24%, 19%);
+    --main-text-color: hsl(234, 39%, 85%);
+    --hover: hsl(236, 33%, 92%);
+    --dark-grayish-blue: hsl(234, 11%, 52%);
+    --round-border-color: hsl(233, 14%, 35%);
+    --very-dark-grayish-blue: hsl(237, 14%, 26%);
+}
+
+.light-theme {
+    --body-background: hsl(233, 11%, 84%);
+    --main-background: hsl(0, 0%, 98%);
+    --main-text-color: hsl(233, 14%, 35%);
+    --dark-grayish-blue: hsl(236, 9%, 61%);
+    --round-border-color: hsl(236, 33%, 92%);
+    --hover: hsl(235, 19%, 35%);
+}
+
+
+*,
+*::after,
+*:before {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 18px;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: var(--body-background);
+}
+
+header .bg-image {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+header .topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: -8.45em;
+    margin-bottom: 5em;
+    margin-inline: 1.4em;
+}
+
+header .topbar .title {
+    color: var(--very-light-grayish-blue);
+    font-size: 1.4rem;
+    font-weight: 700;
+    letter-spacing: .44em;
+    margin-top: -.01em;
+}
+
+header .topbar .toggle-icon-button {
+    background-color: transparent;
+    border: none;
+}
+
+header .topbar .toggle-icon-button img {
+    width: 1.6em;
+    height: 1.6em;
+    margin-right: -.5em;
+    margin-top: -.3em;
+    cursor: pointer;
+}
+
+
+main .input {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: var(--main-background);
+    position: relative;
+    width: 28em;
+    font-size: .65rem;
+    padding: 1.3em 1.5em;
+    border-bottom: 1px solid var(--round-border-color);
+    margin-right: auto;
+    margin-left: auto;
+}
+
+
+main .input:nth-child(1) {
+    border-radius: 5px 5px 0 0;
+}
+
+main .create-todo-form {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: var(--main-background);
+    width: 28em;
+    font-size: .65rem;
+    border-radius: 5px;
+    padding: 1.1em 1.5em;
+    margin-top: -4.7em;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 1.5em;
+}
+
+main .create-todo-form .first-button,
+main .input .button {
+    background: var(--main-background);
+    width: 1.6em;
+    height: 1.6em;
+    border-radius: 50%;
+    border: 1px solid var(--round-border-color);
+    margin-right: .7em;
+    margin-left: .2em;
+    cursor: pointer;
+}
+
+/* ------------------------------------------------------------------------------------------------------------------------------------------------------------ */
+/* main .input .button:hover {
+    border-image: var(--check-background) 1;
+    border-radius: 50%;
+} */
+
+main .input .focus {
+    border: none;
+    outline: none;
+    background: linear-gradient(to bottom right, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+    background-image: url('images/icon-check.svg'), linear-gradient(to bottom right, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+main .create-todo-form .form-input-text {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: .65rem;
+    background-color: transparent;
+    border: none;
+    color: var(--main-text-color);
+    width: 20em;
+    margin-right: .8em;
+}
+
+main .create-todo-form .form-input-text:focus {
+    outline: none;
+}
+
+main .input .display-text {
+    color: var(--main-text-color);
+    width: 20em;
+    margin-right: .8em;
+    cursor: pointer;
+}
+
+main .input .delete-button {
+    visibility: hidden;
+    width: 1em;
+    height: 1em;
+    font-size: .7rem;
+    cursor: pointer;
+}
+
+
+main .input:hover .delete-button {
+    visibility: visible;
+}
+
+
+main .end {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 18.2em;
+    background-color: var(--main-background);
+    padding: 1em 1.15em;
+    border-radius: 0 0 5px 5px;
+    margin-bottom: .86em;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+main .end>* {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: .645rem;
+    color: var(--dark-grayish-blue);
+}
+
+main .end .clear-completed {
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    margin-right: -.2em;
+    transition: all .2s;
+}
+
+main .end .clear-completed:hover {
+    color: var(--hover);
+}
+
+.all-active-completed-wide-screen {
+    display: none;
+}
+
+.all-active-completed-wide-screen button {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: .765rem;
+    font-weight: 700;
+    color: var(--dark-grayish-blue);
+    background-color: transparent;
+    padding: .5em;
+    border: none;
+    cursor: pointer;
+    transition: all .2s;
+}
+
+main .all-active-completed {
+    text-align: center;
+    padding: .55em 1em;
+    background-color: var(--main-background);
+    border-radius: 5px;
+    width: 18.2em;
+    margin-bottom: 2.3em;
+}
+
+main .all-active-completed button {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: .783rem;
+    font-weight: 700;
+    color: var(--dark-grayish-blue);
+    background-color: transparent;
+    padding: .5em;
+    border: none;
+    cursor: pointer;
+    transition: all .2s;
+}
+
+
+main .all-active-completed button:hover {
+    color: var(--hover);
+}
+
+
+main .reorder-list {
+    color: var(--dark-grayish-blue);
+    font-size: .75rem;
+    text-align: center;
+}
+
+.input.dragging {
+    /* background-color: aqua;
+    color: brown; */
+    opacity: .5;
+}

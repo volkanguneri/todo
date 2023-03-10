@@ -1,0 +1,112 @@
+@media screen and (min-width: 1440px) {
+
+    header {
+        width: 100%;
+    }
+
+    header .topbar {
+        width: 44em;
+        margin-right: auto;
+        margin-left: auto;
+        margin-top: -7.2em;
+        padding: 0 13.2em;
+        font-size: 1.7rem;
+    }
+
+    header .topbar .bg-image {
+        width: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
+
+    header .topbar .title {
+        font-size: 2.2rem;
+        letter-spacing: .4em;
+    }
+
+
+    header .topbar .toggle-icon-button img {
+        width: 2em;
+        height: 2em;
+    }
+
+    main .create-todo-form .first-button {
+        margin-right: 1.55em;
+        margin-left: .4em;
+        width: 1.9em;
+        height: 1.9em;
+    }
+
+    main .input {
+        width: 46em;
+        padding: 1.66em 1.7em;
+    }
+
+    main .create-todo-form {
+        width: 46em;
+        padding: 1.65em 1.5em;
+        margin-top: -9.7em;
+        margin-bottom: 2em;
+        /* font-size: .7rem; */
+    }
+
+    main .input .button {
+        width: 1.9em;
+        height: 1.9em;
+        margin-right: 1.65em;
+    }
+
+
+    main .input .display-text,
+    main .create-todo-form .form-input-text {
+        font-size: .975rem;
+    }
+
+    main .input .delete-button {
+        margin-left: 5.5em;
+        width: 1.5em;
+        height: 1.5em;
+    }
+
+    main .end {
+        width: 40em;
+        font-size: .75rem;
+        padding: .7em 1.9em;
+        margin-right: auto;
+        margin-left: auto;
+        margin-bottom: 3.9em;
+    }
+
+    main .all-active-completed {
+        display: none;
+    }
+
+    main .end .clear-completed {
+        font-size: .75rem;
+        margin-right: -.4em;
+    }
+
+    main .end .items-left {
+        font-size: .75rem;
+        margin-left: -.1em;
+    }
+
+    main .end .all-active-completed-wide-screen {
+        display: flex;
+        font-weight: 700;
+        gap: .4em;
+        margin-left: 3.7em;
+    }
+
+    .all-active-completed-wide-screen>* {
+        cursor: pointer;
+    }
+
+    main .all-active-completed-wide-screen button:hover {
+        color: var(--hover);
+    }
+
+    main .all-active-completed-wide-screen button:focus {
+        color: var(--bright-blue);
+    }
+}

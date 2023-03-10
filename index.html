@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="wide-screen.css">
+    <title>Todo App</title>
+</head>
+
+<body>
+    <header>
+        <picture id="picture">
+            <source media="(min-width: 1440px)" srcset="images/bg-desktop-dark.jpg" />
+            <img src="images/bg-mobile-dark.jpg" alt="background image" class="bg-image" id="bgImage" />
+        </picture>
+        <div class="topbar">
+            <h1 class="title" id="title">TODO</h1>
+            <button class="toggle-icon-button" id="toggleIconBtn"><img src="images/icon-sun.svg" alt="sun icon"
+                    class="toggle-icon" id="toggleIcon"></button>
+        </div>
+    </header>
+    <main>
+        <form class="create-todo-form" id="createTodoForm">
+            <button class="first-button"></button>
+            <input class="form-input-text" id="formInputText" type="text" placeholder="Create a new todo..." required>
+        </form>
+        <div id="inputSection">
+            <div class="input" draggable="true">
+                <button class="button"></button>
+                <div class="display-text">Complete online JavaScript course</div>
+                <div><img src="images/icon-cross.svg" alt="delete button" class="delete-button"></div>
+            </div>
+            <div class="input" draggable="true">
+                <button class="button"></button>
+                <div class="display-text">Jog around the parc 3x</div>
+                <div><img src="images/icon-cross.svg" alt="delete button" class="delete-button"></div>
+            </div>
+            <div class="input" draggable="true">
+                <button class="button"></button>
+                <div class="display-text">10 minutes meditation</div>
+                <div><img src="images/icon-cross.svg" alt="delete button" class="delete-button"></div>
+            </div>
+            <div class="input" draggable="true">
+                <button class="button"></button>
+                <div class="display-text">Read for 1 hour</div>
+                <div><img src="images/icon-cross.svg" alt="delete button" class="delete-button"></div>
+            </div>
+            <div class="input" draggable="true">
+                <button class="button"></button>
+                <div class="display-text">Pick up groceries</div>
+                <div><img src="images/icon-cross.svg" alt="delete button" class="delete-button"></div>
+            </div>
+            <div class="input" draggable="true">
+                <button class="button"></button>
+                <div class="display-text">Complete Todo App on Frontend Mentor</div>
+                <div><img src="images/icon-cross.svg" alt="delete button" class="delete-button"></div>
+            </div>
+        </div>
+        <div class="end" id="end">
+            <span class="items-left" id="itemsLeft">5 items left</span>
+            <div class="all-active-completed-wide-screen">
+                <button class="all">All</button>
+                <button class="active">Active</button>
+                <button class="completed">Completed</button>
+            </div>
+            <button class="clear-completed" id="clearCompleted">Clear Completed</button>
+        </div>
+
+        <div class="all-active-completed" id="allActiveCompleted">
+            <button class="all" id="all">All</button>
+            <button class="active" id="active">Active</button>
+            <button class="completed" id="completed">Completed</button>
+        </div>
+
+        <div class="reorder-list">Drag and drop to reorder list</div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
