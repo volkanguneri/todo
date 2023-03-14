@@ -133,8 +133,8 @@ function displayAllTasks() {
 
 function displayCompletedTasks() {
     const inputs = document.querySelectorAll('.input');
-    inputs.forEach(input => {
-        const activeInputs = !input.firstElementChild.classList.contains('focus');
+    inputs.forEach(e => {
+        const activeInputs = !e.firstElementChild.classList.contains('focus');
         activeInputs ? e.style.display = 'none' : e.style.display = "flex";
     });
 };
