@@ -26,53 +26,54 @@
     <main>
         <form class="create-todo-form" id="createTodoForm">
             <button class="first-button"></button>
-            <input class="form-input-text" id="formInputText" type="text" placeholder="Create a new todo..." required>
+            <input class="form-input-text" id="formInputText" type="text" autocomplete="off"
+                placeholder="Create a new todo..." required>
         </form>
-        <div id="inputSection">
-            <div class="input" draggable="true">
+        <ul id="container">
+            <li class="input" draggable="true">
                 <button class="button"></button>
                 <div class="display-text">Complete online JavaScript course</div>
                 <div><img src="images/icon-cross.svg" alt="delete button" class="delete-button"></div>
-            </div>
-            <div class="input" draggable="true">
+            </li>
+            <li class="input" draggable="true">
                 <button class="button"></button>
                 <div class="display-text">Jog around the parc 3x</div>
                 <div><img src="images/icon-cross.svg" alt="delete button" class="delete-button"></div>
-            </div>
-            <div class="input" draggable="true">
+            </li>
+            <li class="input" draggable="true">
                 <button class="button"></button>
                 <div class="display-text">10 minutes meditation</div>
                 <div><img src="images/icon-cross.svg" alt="delete button" class="delete-button"></div>
-            </div>
-            <div class="input" draggable="true">
+            </li>
+            <li class="input" draggable="true">
                 <button class="button"></button>
                 <div class="display-text">Read for 1 hour</div>
                 <div><img src="images/icon-cross.svg" alt="delete button" class="delete-button"></div>
-            </div>
-            <div class="input" draggable="true">
+            </li>
+            <li class="input" draggable="true">
                 <button class="button"></button>
                 <div class="display-text">Pick up groceries</div>
                 <div><img src="images/icon-cross.svg" alt="delete button" class="delete-button"></div>
-            </div>
-            <div class="input" draggable="true">
+            </li>
+            <li class="input" draggable="true">
                 <button class="button"></button>
                 <div class="display-text">Complete Todo App on Frontend Mentor</div>
                 <div><img src="images/icon-cross.svg" alt="delete button" class="delete-button"></div>
-            </div>
-        </div>
+            </li>
+        </ul>
         <div class="end" id="end">
             <span class="items-left" id="itemsLeft">5 items left</span>
             <div class="all-active-completed-wide-screen">
-                <button class="all">All</button>
-                <button class="active">Active</button>
+                <button class="all active">All</button>
+                <button class="active-button">Active</button>
                 <button class="completed">Completed</button>
             </div>
             <button class="clear-completed" id="clearCompleted">Clear Completed</button>
         </div>
 
         <div class="all-active-completed" id="allActiveCompleted">
-            <button class="all" id="all">All</button>
-            <button class="active" id="active">Active</button>
+            <button class="all" id="all active">All</button>
+            <button class="active-button" id="active">Active</button>
             <button class="completed" id="completed">Completed</button>
         </div>
 
