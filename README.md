@@ -1,4 +1,4 @@
-This is a To-Do list app with drag and drop functionality.
+This is a To-Do list app.
 
 It contains a feature to switch between light and dark mode. 
 
