@@ -37,18 +37,18 @@ function colorChange() {
 
 // Displays light or dark scheme according to hour (light in the day, dark in the night)
 
-function nightDay() {
-    const date = new Date();
-    const hour = date.getHours();
-    if (hour > 7 || hour < 17) {
-        body.classList.toggle('light-theme');
-        lightMode()
-    } else {
-        darkMode()
-    }
-};
+// function nightDay() {
+//     const date = new Date();
+//     const hour = date.getHours();
+//     if (hour > 7 || hour < 17) {
+//         body.classList.toggle('light-theme');
+//         lightMode()
+//     } else {
+//         darkMode()
+//     }
+// };
 
-nightDay();
+// nightDay();
 
 // Creates new tasks 
 
@@ -58,6 +58,7 @@ function createNewTask() {
     const newInput = document.createElement('li');
     newInput.classList.add('input');
     newInput.setAttribute('draggable', 'true');
+    newInput.addEventListener('dragstart', dragStart);
 
     const button = document.createElement('button');
     button.classList.add('button');
@@ -140,6 +141,12 @@ function displayCompletedTasks() {
 };
 
 
+// Adds "dragging" class to new inputs created dynamicly so that they can also be dragged
+
+function dragStart(event) {
+    event.currentTarget.classList.add('dragging');
+}
+
 // Identifies the element on which the cursor is, to be used for drag event listener down
 
 function getDragAfterElement(container, y) {
@@ -206,7 +213,7 @@ activeBtns.forEach(e => {
 completedBtns.forEach(e => {
     e.addEventListener('click', i => {
         i.preventDefault();
-        displayCompletedTasks()
+        displayCompletedTasks();
         allBtns.forEach(button => {
             button.classList.contains('active') ? button.classList.remove('active') : null;
         });
