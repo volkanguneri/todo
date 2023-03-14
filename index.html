@@ -29,29 +29,29 @@
             <input class="form-input-text" id="formInputText" type="text" autocomplete="off"
                 placeholder="Create a new todo..." required aria-label="Enter new todo">
         </form>
-        <ul id="container" role="list">
-            <li class="input" draggable="true" role="listitem">
+        <ul id="container">
+            <li class="input" draggable="true">
                 <button class="button" type="button"
                     aria-label="Toggle task from active to completed and vice-versa"></button>
                 <div class="display-text">Complete online JavaScript course</div>
                 <div><img src="images/icon-cross.svg" alt="delete button" class="delete-button"
                         aria-label="Delete todo"></div>
             </li>
-            <li class="input" draggable="true" role="listitem">
+            <li class="input" draggable="true">
                 <button class="button" type="button"
                     aria-label="Toggle task from active to completed and vice-versa"></button>
                 <div class="display-text">Jog around the parc 3x</div>
                 <div><img src="images/icon-cross.svg" alt="delete button" class="delete-button"
                         aria-label="Delete todo"></div>
             </li>
-            <li class="input" draggable="true" role="listitem">
+            <li class="input" draggable="true">
                 <button class="button" type="button"
                     aria-label="Toggle task from active to completed and vice-versa"></button>
                 <div class="display-text">10 minutes meditation</div>
                 <div><img src="images/icon-cross.svg" alt="delete button" class="delete-button"
                         aria-label="Delete todo"></div>
             </li>
-            <li class="input" draggable="true" role="listitem">
+            <li class="input" draggable="true">
                 <button class="button" type="button"
                     aria-label="Toggle task from active to completed and vice-versa"></button>
                 <div class="display-text">Read for 1 hour</div>
@@ -73,7 +73,7 @@
         </ul>
         <div class="end" id="end">
             <span class="items-left" id="itemsLeft" aria-live="polite" aria-atomic="true">5 items left</span>
-            <div class="all-active-completed-wide-screen" aria-label="Filter tasks by status">
+            <div class="all-active-completed-wide-screen">
                 <button class="all active" type="button" aria-selected="true" aria-label="Show all tasks">All</button>
                 <button class="active-button" type="button" aria-selected="false"
                     aria-label="Show only active tasks">Active</button>
@@ -84,7 +84,7 @@
                 Completed</button>
         </div>
 
-        <div class="all-active-completed" id="allActiveCompleted" aria-label="Filter tasks by status">
+        <div class="all-active-completed" id="allActiveCompleted">
             <button class="all active" id="all" type="button" aria-selected="true"
                 aria-label="Show all tasks">All</button>
             <button class="active-button" id="active" type="button" aria-selected="false"
@@ -93,7 +93,7 @@
                 aria-label="Show only completed tasks">Completed</button>
         </div>
 
-        <div class="reorder-list" aria-label="Reorder tasks">Drag and drop to reorder list</div>
+        <div class="reorder-list">Drag and drop to reorder list</div>
 
     </main>
 
