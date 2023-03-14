@@ -5,18 +5,18 @@ const formElement = document.getElementById('createTodoForm');
 const inputText = document.getElementById('formInputText');
 const displayText = document.querySelectorAll('.display-text');
 const deleteBtns = document.querySelectorAll('.delete-button');
-const activeBtns = document.querySelectorAll('.active');
+const activeBtns = document.querySelectorAll('.active-button');
 const allBtns = document.querySelectorAll('.all');
 const completedBtns = document.querySelectorAll('.completed');
 const clearCompletedBtn = document.getElementById('clearCompleted');
-const inputSection = document.getElementById('inputSection');
+const container = document.getElementById('container');
 const bgImage = document.getElementById('bgImage');
-const picture = document.getElementById('picture');
 const inputs = document.querySelectorAll('.input');
 const body = document.body;
 
 
-// Functions
+// FUNCTIONS
+
 function lightMode() {
     toggleIcon.src = "images/icon-moon.svg";
     bgImage.src = "images/bg-mobile-light.jpg";
@@ -34,10 +34,13 @@ function colorChange() {
     body.classList.contains("light-theme") ? lightMode() : darkMode();
 };
 
+
+// Displays light or dark scheme according to hour (light in the day, dark in the night)
+
 // function nightDay() {
 //     const date = new Date();
 //     const hour = date.getHours();
-//     if (hour > 5 || hour < 20) {
+//     if (hour > 7 || hour < 17) {
 //         body.classList.toggle('light-theme');
 //         lightMode()
 //     } else {
@@ -47,7 +50,37 @@ function colorChange() {
 
 // nightDay();
 
-// when a task is done
+// Creates new tasks 
+
+function createNewTask() {
+    const inputValue = inputText.value;
+
+    const newInput = document.createElement('li');
+    newInput.classList.add('input');
+    newInput.setAttribute('draggable', 'true');
+
+    const button = document.createElement('button');
+    button.classList.add('button');
+    newInput.appendChild(button);
+
+    const displayText = document.createElement('div');
+    displayText.classList.add('display-text');
+    displayText.textContent = inputValue;
+    newInput.appendChild(displayText);
+
+    const deleteButton = document.createElement('img');
+    deleteButton.setAttribute('src', 'images/icon-cross.svg');
+    deleteButton.setAttribute('alt', 'delete button');
+    deleteButton.classList.add('delete-button');
+    newInput.appendChild(deleteButton);
+
+    container.appendChild(newInput);
+
+    inputText.value = '';
+};
+
+// displays that task is completed
+
 function doneBtn(button) {
     const inputText = button.nextElementSibling;
     if (inputText.style.textDecoration === 'line-through') {
@@ -75,7 +108,7 @@ function doneTxt(text) {
     text.previousElementSibling.classList.toggle('focus');
 };
 
-
+// Deletes task
 function deleteBtn(button) {
     const container = button.parentElement.parentElement;
     container.remove();
@@ -83,80 +116,80 @@ function deleteBtn(button) {
 
 function displayActiveTasks() {
     const inputs = document.querySelectorAll('.input');
-    inputs.forEach(e => {
-        const doneInputs = e.firstElementChild.classList.contains('focus');
-        if (doneInputs) {
-            e.style.display = 'none';
-        } else {
-            e.style.display = "flex";
-        };
+    inputs.forEach(input => {
+        const doneInputs = input.firstElementChild.classList.contains('focus');
+        doneInputs ? input.style.display = 'none' : input.style.display = "flex";
     });
 };
 
 function displayAllTasks() {
     allBtns.forEach(e => {
         const inputs = document.querySelectorAll('.input');
-        inputs.forEach(i => {
-            i.style.display = 'flex';
+        inputs.forEach(input => {
+            input.style.display = 'flex';
         });
     });
 };
 
 function displayCompletedTasks() {
     const inputs = document.querySelectorAll('.input');
-    inputs.forEach(e => {
-        const activeInputs = !e.firstElementChild.classList.contains('focus');
-        if (activeInputs) {
-            e.style.display = 'none';
-        } else {
-            e.style.display = "flex";
-        };
+    inputs.forEach(input => {
+        const activeInputs = !input.firstElementChild.classList.contains('focus');
+        activeInputs ? e.style.display = 'none' : e.style.display = "flex";
     });
 };
 
-function createInput() {
-    const inputValue = inputText.value;
 
-    const newInput = document.createElement('div');
-    newInput.setAttribute('class', 'input');
-    newInput.setAttribute('draggable', 'true');
-    newInput.innerHTML = `
-    <button class="button"></button>
-    <div class="display-text">${inputValue}</div>
-    <div><img src="images/icon-cross.svg" alt="delete button" class="delete-button"></div>
-    `;
-    inputSection.append(newInput);
+// Identifies the element on which the cursor is, to be used for drag event listener down
 
-    inputText.value = '';
+function getDragAfterElement(container, y) {
+    const draggebleElements = [...container.querySelectorAll('.input:not(.dragging)')];
+
+    return draggebleElements.reduce((closest, child) => {
+        const box = child.getBoundingClientRect();
+        const offset = y - box.top - box.height / 2;
+        // console.log(offset)
+        if (offset < 0 && offset > closest.offset) {
+            return { offset: offset, element: child };
+        } else {
+            return closest;
+        }
+    }, { offset: Number.NEGATIVE_INFINITY }).element;
 };
 
 
 // EVENT LISTENERS
-toggleIcon.addEventListener('click', (e) => {
+
+toggleIcon.addEventListener('click', e => {
     body.classList.toggle('light-theme');
     colorChange()
 });
 
 
-// Add a single event listener to the parent element so that functions work with ever element added dynamicly 
-inputSection.addEventListener('click', (e) => {
+// Adds a single event listener to the parent element so that functions work with every element dynamicly 
+
+container.addEventListener('click', e => {
     e.preventDefault();
-    // Check if the clicked element is a done button, delete button or text
-    if (e.target && e.target.matches('.button')) {
-        doneBtn(e.target);
-    }
-    if (e.target && e.target.matches('.delete-button')) {
-        deleteBtn(e.target);
-    }
-    if (e.target && e.target.matches('.display-text')) {
-        doneTxt(e.target);
-    }
+
+    // Checks if the clicked element is a done, delete or a text button to execute the function required. to avoid an eventual bug. 
+    e.target && e.target.matches('.button') ? doneBtn(e.target) : null;
+    e.target && e.target.matches('.delete-button') ? deleteBtn(e.target) : null;
+    e.target && e.target.matches('.display-text') ? doneTxt(e.target) : null;
 });
+
+// When the page is loaded, every tasks active or completed are displayed
+
+window.addEventListener('load', e => {
+    displayAllTasks();
+});
+
+// Filtering tasks according their all, active or completed status
+// For practical reasons concerning css code i have created two all buttons, one of them is displayed none on mobile screen and visible on desktop vice-versa. Same for active and completed buttons
 
 allBtns.forEach(e => {
     e.addEventListener('click', i => {
         i.preventDefault();
-        displayAllTasks()
+        displayAllTasks();
     });
 });
 
@@ -164,6 +197,9 @@ activeBtns.forEach(e => {
     e.addEventListener('click', i => {
         i.preventDefault();
         displayActiveTasks();
+        allBtns.forEach(button => {
+            button.classList.contains('active') ? button.classList.remove('active') : null;
+        });
     });
 });
 
@@ -171,21 +207,48 @@ completedBtns.forEach(e => {
     e.addEventListener('click', i => {
         i.preventDefault();
         displayCompletedTasks()
+        allBtns.forEach(button => {
+            button.classList.contains('active') ? button.classList.remove('active') : null;
+        });
     });
 });
 
+// Clear Completed button clears completed tasks
 
 clearCompletedBtn.addEventListener('click', e => {
     const inputs = document.querySelectorAll('.input');
     inputs.forEach(e => {
         const doneInputs = e.firstElementChild.classList.contains('focus');
-        if (doneInputs) {
-            e.remove();
-        }
+        doneInputs ? e.remove() : null;
     });
 });
 
-formElement.addEventListener('submit', (e) => {
+// Submit Event Listener
+
+formElement.addEventListener('submit', e => {
     e.preventDefault();
-    createInput()
+    createNewTask();
+});
+
+// Drag eventlistener alows to drag and drop 
+
+inputs.forEach(draggeble => {
+    draggeble.addEventListener('dragstart', () => {
+        draggeble.classList.add('dragging');
+    });
+    draggeble.addEventListener('dragend', () => {
+        draggeble.classList.remove('dragging');
+    });
+});
+
+container.addEventListener('dragover', (e) => {
+    e.preventDefault();
+    const afterElement = getDragAfterElement(container, e.clientY);
+    const draggable = document.querySelector('.dragging');
+    container.append(draggable);
+    if (afterElement == null) {
+        container.appendChild(draggable);
+    } else {
+        container.insertBefore(draggable, afterElement);
+    };
 });
