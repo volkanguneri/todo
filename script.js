@@ -37,18 +37,18 @@ function colorChange() {
 
 // Displays light or dark scheme according to hour (light in the day, dark in the night)
 
-// function nightDay() {
-//     const date = new Date();
-//     const hour = date.getHours();
-//     if (hour > 7 || hour < 17) {
-//         body.classList.toggle('light-theme');
-//         lightMode()
-//     } else {
-//         darkMode()
-//     }
-// };
+function nightDay() {
+    const date = new Date();
+    const hour = date.getHours();
+    if (hour > 7 || hour < 17) {
+        body.classList.toggle('light-theme');
+        lightMode()
+    } else {
+        darkMode()
+    }
+};
 
-// nightDay();
+nightDay();
 
 // Creates new tasks 
 
