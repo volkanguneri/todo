@@ -19,65 +19,82 @@
         </picture>
         <div class="topbar">
             <h1 class="title" id="title">TODO</h1>
-            <button class="toggle-icon-button" id="toggleIconBtn"><img src="images/icon-sun.svg" alt="sun icon"
-                    class="toggle-icon" id="toggleIcon"></button>
+            <button class="toggle-icon-button" id="toggleIconBtn" type="button" aria-label="Toggle dark mode"><img
+                    src="images/icon-sun.svg" alt="sun icon" class="toggle-icon" id="toggleIcon"></button>
         </div>
     </header>
     <main>
         <form class="create-todo-form" id="createTodoForm">
-            <button class="first-button"></button>
+            <button class="first-button" type="submit" aria-label="Submit new todo"></button>
             <input class="form-input-text" id="formInputText" type="text" autocomplete="off"
-                placeholder="Create a new todo..." required>
+                placeholder="Create a new todo..." required aria-label="Enter new todo">
         </form>
-        <ul id="container">
-            <li class="input" draggable="true">
-                <button class="button"></button>
+        <ul id="container" role="list">
+            <li class="input" draggable="true" role="listitem">
+                <button class="button" type="button"
+                    aria-label="Toggle task from active to completed and vice-versa"></button>
                 <div class="display-text">Complete online JavaScript course</div>
-                <div><img src="images/icon-cross.svg" alt="delete button" class="delete-button"></div>
+                <div><img src="images/icon-cross.svg" alt="delete button" class="delete-button"
+                        aria-label="Delete todo"></div>
             </li>
-            <li class="input" draggable="true">
-                <button class="button"></button>
+            <li class="input" draggable="true" role="listitem">
+                <button class="button" type="button"
+                    aria-label="Toggle task from active to completed and vice-versa"></button>
                 <div class="display-text">Jog around the parc 3x</div>
-                <div><img src="images/icon-cross.svg" alt="delete button" class="delete-button"></div>
+                <div><img src="images/icon-cross.svg" alt="delete button" class="delete-button"
+                        aria-label="Delete todo"></div>
             </li>
-            <li class="input" draggable="true">
-                <button class="button"></button>
+            <li class="input" draggable="true" role="listitem">
+                <button class="button" type="button"
+                    aria-label="Toggle task from active to completed and vice-versa"></button>
                 <div class="display-text">10 minutes meditation</div>
-                <div><img src="images/icon-cross.svg" alt="delete button" class="delete-button"></div>
+                <div><img src="images/icon-cross.svg" alt="delete button" class="delete-button"
+                        aria-label="Delete todo"></div>
             </li>
-            <li class="input" draggable="true">
-                <button class="button"></button>
+            <li class="input" draggable="true" role="listitem">
+                <button class="button" type="button"
+                    aria-label="Toggle task from active to completed and vice-versa"></button>
                 <div class="display-text">Read for 1 hour</div>
-                <div><img src="images/icon-cross.svg" alt="delete button" class="delete-button"></div>
+                <div><img src="images/icon-cross.svg" alt="delete button" class="delete-button"
+                        aria-label="Delete todo"></div>
             </li>
             <li class="input" draggable="true">
-                <button class="button"></button>
+                <button class="button" type="button"
+                    aria-label="Toggle task from active to completed and vice-versa"></button>
                 <div class="display-text">Pick up groceries</div>
                 <div><img src="images/icon-cross.svg" alt="delete button" class="delete-button"></div>
             </li>
             <li class="input" draggable="true">
-                <button class="button"></button>
+                <button class="button" type="button"
+                    aria-label="Toggle task from active to completed and vice-versa"></button>
                 <div class="display-text">Complete Todo App on Frontend Mentor</div>
                 <div><img src="images/icon-cross.svg" alt="delete button" class="delete-button"></div>
             </li>
         </ul>
         <div class="end" id="end">
-            <span class="items-left" id="itemsLeft">5 items left</span>
-            <div class="all-active-completed-wide-screen">
-                <button class="all active">All</button>
-                <button class="active-button">Active</button>
-                <button class="completed">Completed</button>
+            <span class="items-left" id="itemsLeft" aria-live="polite" aria-atomic="true">5 items left</span>
+            <div class="all-active-completed-wide-screen" aria-label="Filter tasks by status">
+                <button class="all active" type="button" aria-selected="true" aria-label="Show all tasks">All</button>
+                <button class="active-button" type="button" aria-selected="false"
+                    aria-label="Show only active tasks">Active</button>
+                <button class="completed" type="button" aria-selected="false"
+                    aria-label="Show only completed tasks">Completed</button>
             </div>
-            <button class="clear-completed" id="clearCompleted">Clear Completed</button>
+            <button class="clear-completed" id="clearCompleted" aria-label="Clear completed tasks">Clear
+                Completed</button>
         </div>
 
-        <div class="all-active-completed" id="allActiveCompleted">
-            <button class="all" id="all active">All</button>
-            <button class="active-button" id="active">Active</button>
-            <button class="completed" id="completed">Completed</button>
+        <div class="all-active-completed" id="allActiveCompleted" aria-label="Filter tasks by status">
+            <button class="all" id="all active" type="button" aria-selected="true"
+                aria-label="Show all tasks">All</button>
+            <button class="active-button" id="active" type="button" aria-selected="false"
+                aria-label="Show only active tasks">Active</button>
+            <button class="completed" id="completed" type="button" aria-selected="false"
+                aria-label="Show only completed tasks">Completed</button>
         </div>
 
-        <div class="reorder-list">Drag and drop to reorder list</div>
+        <div class="reorder-list" aria-label="Reorder tasks">Drag and drop to reorder list</div>
+
     </main>
 
     <script src="script.js"></script>
